@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  //comment
   await HiveHelper.helper.initDatabase();
   runApp(MyApp());
 }
