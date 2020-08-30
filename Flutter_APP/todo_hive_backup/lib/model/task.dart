@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:todo_hive/hivehelper/hivehelper.dart';
 
 part 'task.g.dart';
 
 @HiveType(typeId: 1)
 class Task {
-  // @HiveField(1)
-  // int taskId;
-
   @HiveField(1)
   String title;
 
@@ -23,9 +19,6 @@ class Task {
 
   @HiveField(5)
   String dueTime;
-
-  //DateTime dueDate;
-  // TimeOfDay dueTime;
 
   Task({
     @required this.title,

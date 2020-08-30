@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:todo_hive/model/task.dart';
@@ -9,11 +8,6 @@ class HiveHelper {
   static HiveHelper helper = HiveHelper._();
 
   Box<Task> todoBox;
-  // @override
-  // void initState() {
-  //    super.initState();
-  //   todoBox = Hive.box<Task>('tasks');
-  // }
 
   initDatabase() async {
     Directory appDocDir = await getApplicationDocumentsDirectory();
@@ -44,12 +38,10 @@ class HiveHelper {
   }
 
   insertTask(Task task) {
-    print('****///////hhhhhh ${task.title}');
     todoBox.add(task);
   }
 
   updateTask(Task task, int key) {
-    //Task edittask = todoBox.get(key);
     todoBox.put(key, task);
   }
 
@@ -75,9 +67,4 @@ class HiveHelper {
   deleteAllInCompleteTask(List tasksKey) {
     todoBox.deleteAll(tasksKey);
   }
-
-  //  List<Task> sorAllTasks() {
-  //   List<Task> tasksList = todoBox.values.toList().sort((a, b) => a.title.compareTo(b.title));
-  //   return tasksList != null ? tasksList : null;
-  // }
 }

@@ -4,8 +4,6 @@ import 'package:todo_hive/model/task.dart';
 import 'package:todo_hive/widget/add_new_task.dart';
 import 'package:todo_hive/widget/item_text.dart';
 import 'package:todo_hive/hivehelper/hivehelper.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:hive/hive.dart';
 
 class ListItem extends StatefulWidget {
   final Task task;
@@ -18,23 +16,8 @@ class ListItem extends StatefulWidget {
 }
 
 class ListItemState extends State<ListItem> {
-  // List<dynamic> taskkey;
-
   @override
   Widget build(BuildContext context) {
-    //int taskindex = widget.taskIndex;
-    // print('yyyyyyyyyyyyyyyyyyyyyy');
-    //print(widget.task.isDone.toString());
-    //return
-    // ValueListenableBuilder<Box<Task>>(
-    //     valueListenable: HiveHelper.helper.todoBox.listenable(),
-    //     builder: (context, value, child) {
-    //       List<dynamic> keys = value.keys.toList();
-    //firstWhere((element) => value.get(element).title == widget.task.title);
-    //taskkey = key;
-
-    // print('ooooooooooooooooooo' + widget.taskKey.toString());
-
     void _checkItem() {
       setState(() {
         HiveHelper.helper.changeTaskStatus(widget.taskKey);
@@ -73,8 +56,6 @@ class ListItemState extends State<ListItem> {
       child: GestureDetector(
           onTap: _checkItem,
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(
                 height: 12,
@@ -126,6 +107,5 @@ class ListItemState extends State<ListItem> {
             ],
           )),
     );
-    //  });
   }
 }

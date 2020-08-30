@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class ItemText extends StatelessWidget {
   final bool check;
@@ -50,7 +49,7 @@ class ItemText extends StatelessWidget {
 
   Widget _buildDateText(BuildContext context) {
     return Text(
-      dueDate, //DateFormat.yMMMd().format(dueDate).toString(),
+      dueDate,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
         fontSize: 14,
@@ -61,7 +60,7 @@ class ItemText extends StatelessWidget {
 
   Widget _buildTimeText(BuildContext context) {
     return Text(
-      dueTime, //.format(context),
+      dueTime,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
         fontSize: 14,
@@ -71,9 +70,6 @@ class ItemText extends StatelessWidget {
   }
 
   Widget _buildDateTimeTexts(BuildContext context) {
-    // if (dueDate != null && dueTime == null) {
-    //   return _buildDateText(context);
-    // } else
     if (dueDate != null && dueTime != null) {
       return Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,

@@ -3,16 +3,12 @@ import 'package:intl/intl.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:todo_hive/hivehelper/hivehelper.dart';
 import 'package:todo_hive/model/task.dart';
-import 'package:date_format/date_format.dart';
 
 class AddNewTask extends StatefulWidget {
   final Task task;
   final bool isEditMode;
   int taskKey;
-  //TextEditingController controller = TextEditingController();
-
   AddNewTask({this.task, this.isEditMode, this.taskKey});
-
   @override
   AddNewTaskState createState() => AddNewTaskState();
 }
@@ -70,10 +66,6 @@ class AddNewTaskState extends State<AddNewTask> {
         _selectedDate = DateFormat.yMMMd().format(DateTime.now()).toString();
       }
       if (!widget.isEditMode) {
-        print(
-            '***data save title*** : $_title decreption is : $_inputDescription  dueData is: $_selectedDate  duetime is: $_selectedTime');
-        print('##############ssssssssssss###############****');
-
         task1 = Task(
           title: _title,
           description: _inputDescription,
@@ -82,14 +74,6 @@ class AddNewTaskState extends State<AddNewTask> {
           isDone: false,
         );
         HiveHelper.helper.insertTask(task1);
-        // Task(
-        //   title: _title,
-        //   description: _inputDescription,
-        //   dueDate: _selectedDate,
-        //   dueTime: _selectedTime,
-        // ),
-
-        print('##############hhhhhhhhhhhhh###############****');
       } else {
         HiveHelper.helper.updateTask(
             Task(
@@ -182,7 +166,7 @@ class AddNewTaskState extends State<AddNewTask> {
                         }),
                     Text(_selectedDate == null
                         ? 'Provide your due date'
-                        : _selectedDate), //DateFormat.yMMMMd().format(_selectedDate).toString()),
+                        : _selectedDate),
                   ],
                 ),
                 SizedBox(
@@ -201,7 +185,7 @@ class AddNewTaskState extends State<AddNewTask> {
                         }),
                     Text(_selectedDate == null
                         ? 'Provide your due time'
-                        : _selectedTime) //.format(context)),
+                        : _selectedTime)
                   ],
                 ),
               ],

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:todo_hive/hivehelper/hivehelper.dart';
 import 'package:todo_hive/widget/add_new_task.dart';
@@ -93,7 +92,6 @@ class Homepage extends StatelessWidget {
             icon: Icon(Icons.delete),
             onPressed: () {
               showDialogAlert();
-              // HiveHelper.helper.deleteAllTask();
             },
           ),
         ],
@@ -112,33 +110,3 @@ class Homepage extends StatelessWidget {
     );
   }
 }
-
-// class ShowDialog extends StatelessWidget {
-//   @override
-// Widget build(BuildContext context) {
-// showDialogAlert() {
-//   showDialog(
-//       context: context,
-//       builder: (context) {
-//         return AlertDialog(
-//           title: Text('alert Dailog'),
-//           content: Text('You Wil Delete All Tasks'),
-//           shape: RoundedRectangleBorder(
-//               borderRadius: BorderRadius.circular(50)),
-//           actions: <Widget>[
-//             RaisedButton(
-//               onPressed: () {
-//                 print('delete ');
-//                 HiveHelper.helper.deleteAllTask();
-//                 Navigator.pop(context);
-//               },
-//               child: Text('delete'),
-//             ),
-//           ],
-//         );
-//       });
-// }
-
-//     return showDialogAlert();
-//   }
-// }
